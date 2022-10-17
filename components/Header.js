@@ -15,7 +15,6 @@ const Header = () => {
 };
 
 const styles = StyleSheet.create({
-  // Header
   HeaderView: {
     paddingVertical: 10,
     marginBottom: 10,
