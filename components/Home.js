@@ -1,60 +1,35 @@
 import React, { useState } from "react";
 import { Text, View, Button, StyleSheet, TouchableOpacity } from "react-native";
 import Header from "./Header.js";
+import ListItems from "./ListItems.js";
 
 const Home = () => {
-  const [number, setNumber] = useState(5);
-
-  const karinArray = [
-    { firstName: "yovel", lastName: "ovadia" },
-    { firstName: "karin", lastName: "ochayon" },
-    { firstName: "elad", lastName: "ovadia" },
+  const initialTodos = [
+    {
+      title: "Go to the doctor",
+      date: "wed, 19 oct 2022 16:30:10 GMT",
+      key: "1",
+    },
+    {
+      title: "Check 'Massvid' payment",
+      date: "wed, 19 oct 2022 16:30:10 GMT",
+      key: "2",
+    },
+    {
+      title: "Go to the libary",
+      date: "wed, 19 oct 2022 16:30:10 GMT",
+      key: "3",
+    },
   ];
 
-  const incrementNumber = () => {
-    if (number !== 10) {
-      setNumber(number + 1);
-    }
-  };
-
-  const decrmentNumber = () => {
-    if (number !== 0) {
-      setNumber(number - 1);
-    }
-  };
+  const [todos, setTodos] = useState(initialTodos);
 
   return (
-    <View>
+    <>
       <Header />
-      {/* <TouchableOpacity onPress={incrementNumber} style={styles.MamiButton}>
-        <Text>Press me to increment the number</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={decrmentNumber} style={styles.MamiButton}>
-        <Text>Press me to decrement the number</Text>
-      </TouchableOpacity>
-      <Text>{number}</Text> */}
-
-      {karinArray.map((object) => {
-        return (
-          <Text style={{ color: "red" }}>
-            {object.firstName + " " + object.lastName}
-          </Text>
-        );
-      })}
-    </View>
+      <ListItems setTodos={setTodos} todos={todos} />
+    </>
   );
 };
-
-const styles = StyleSheet.create({
-  MamiButton: {
-    fontWeight: "bold",
-    color: "black",
-    fontSize: 50,
-    backgroundColor: "yellow",
-    alignItems: "center",
-    padding: 50,
-    justifyContent: "center",
-  },
-});
 
 export default Home;
