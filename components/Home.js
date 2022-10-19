@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, View, Button, StyleSheet, TouchableOpacity } from "react-native";
 import Header from "./Header.js";
 import ListItems from "./ListItems.js";
+import InputModel from "./InputModel.js";
 
 const Home = () => {
   const initialTodos = [
@@ -24,10 +25,32 @@ const Home = () => {
 
   const [todos, setTodos] = useState(initialTodos);
 
+  const handelClearTodos = () => {
+    setTodos([]);
+  };
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [todoInputValue, setTodoInputValue] = useState();
+
+  const handleAddTodo = (todo) => {
+    const newTodos = [...todos, todo];
+    setTodos(newTodos);
+    setModalVisible(false);
+  };
+
   return (
     <>
-      <Header />
+      <Header handelClearTodos={handelClearTodos} />
       <ListItems setTodos={setTodos} todos={todos} />
+      <InputModel
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        todoInputValue={todoInputValue}
+        setTodoInputValue={setTodoInputValue}
+        handleAddTodo={handleAddTodo}
+        todos={todos}
+      />
     </>
   );
 };

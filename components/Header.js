@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
 
-const Header = () => {
+const Header = ({ handelClearTodos }) => {
   return (
     <View style={styles.HeaderView}>
       <Text style={styles.HeaderTitle}>ToDos</Text>
-      <TouchableOpacity style={styles.HeaderButton}>
+      <TouchableOpacity style={styles.HeaderButton} onPress={handelClearTodos}>
         <Entypo name="trash" size={35} color="black" />
       </TouchableOpacity>
     </View>

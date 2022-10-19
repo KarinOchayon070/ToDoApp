@@ -143,9 +143,9 @@ export const StyledInput = styled.TextInput`
 export const ModalAction = styled.TouchableOpacity`
   width: 60px;
   height: 60px;
-  background-color: ${(props) => props.color};
+  back:ground-color: ${(props) => props.color};
   border-radius: 50px;
-  justify-content: center;
+  justify-content center;
   align-items: center;
   align-self: center;
 `;
