@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Text, View, Button, StyleSheet, TouchableOpacity } from "react-native";
 import Header from "./Header.js";
 import ListItems from "./ListItems.js";
 import InputModel from "./InputModel.js";
