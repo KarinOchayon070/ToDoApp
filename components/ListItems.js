@@ -15,7 +15,9 @@ const ListItems = ({ todos, setTodos }) => {
 
   return (
     <>
-      {todos.length == 0 && <Text>You have no todos today</Text>}
+      {todos.length == 0 && (
+        <Text style={styles.NoTodoText}>You have no todos today</Text>
+      )}
       <SwipeListView
         data={todos}
         renderItem={(data) => {
@@ -79,6 +81,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 0,
     borderColor: "#e6ccff",
+    paddingHorizontal: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.53,
+    shadowRadius: 13.97,
+
+    elevation: 21,
   },
 
   TodoText: {
@@ -116,6 +128,15 @@ const styles = StyleSheet.create({
     color: "black",
     fontStyle: "italic",
     textDecorationLine: "line-through",
+  },
+
+  NoTodoText: {
+    fontSize: 20,
+    letterSpacing: 1,
+    color: "black",
+    fontStyle: "italic",
+    textAlign: "center",
+    fontWeight: "bold",
   },
 });
 

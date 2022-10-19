@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     justifycontent: "center",
     alignItems: "center",
     alignSelf: "center",
-    position: "absolute",
+    position: "relative",
     bottom: 50,
   },
 
