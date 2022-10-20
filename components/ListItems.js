@@ -3,6 +3,8 @@ import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import { SwipeListView } from "react-native-swipe-list-view";
 import { Entypo } from "@expo/vector-icons";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const ListItems = ({ todos, setTodos }) => {
   const [swipedRow, setSwipedRow] = useState(null);
 
@@ -10,7 +12,11 @@ const ListItems = ({ todos, setTodos }) => {
     const newTodos = [...todos];
     const todoIndex = todos.findIndex((todo) => todo.key === rowKey);
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    AsyncStorage.setItem("storedTodos", JSON.stringify(newTodos))
+      .then(() => {
+        setTodos(newTodos);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
